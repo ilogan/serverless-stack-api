@@ -1,7 +1,7 @@
 # NOTE: update this with your service name
 service: notes-app-api
 
-# Create an optimized package for our functions 
+# Create an optimized package for our functions
 package:
   individually: true
 
@@ -22,6 +22,14 @@ provider:
   #environment: ${file(env.yml):${self:provider.stage}}
 
 functions:
+  create:
+    handler: create.main
+    events:
+      - http:
+          path: notes
+          method: post
+          cors: true
+          authorizer: aws_iam
   hello:
     handler: handler.hello
     events:
