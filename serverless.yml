@@ -107,12 +107,6 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: hello
-          method: get
 
 # Create our resources with separate CloudFormation templates
 resources:
